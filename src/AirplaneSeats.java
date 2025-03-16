@@ -4,5 +4,6 @@ public class AirplaneSeats {
     static final int y = 4;
     static Scanner keyboard = new Scanner(System.in);
     public static void main(String[] args) {
+
     }
 }
