@@ -16,4 +16,10 @@ public class Seat {
         occupied = false;
         cost = 0;
     }
+
+    public Seat(int rowPassed, int seatPassed) {
+        Random rng = new Random();
+        row = rowPassed;
+        seat = seatPassed;
+    }
 }
