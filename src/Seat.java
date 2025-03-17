@@ -48,4 +48,57 @@ public class Seat {
     public boolean getOccupied() {
         return occupied;
     }
+
+    public int getCost() {
+        return cost;
+    }
+
+    public static int getRevenue() {
+        return revenue;
+    }
+
+
+
+    public void setRow(int rowPassed) {
+        row = rowPassed;
+    }
+
+    public void setSeat(int seatPassed) {
+        seat = seatPassed;
+    }
+
+    public void setAisle(boolean aislePassed) {
+        aisle = aislePassed;
+    }
+
+    public void setWindow(boolean windowPassed) {
+        window = windowPassed;
+    }
+
+    public void setOccupied(boolean occupiedPassed) {
+        if (occupiedPassed && !occupied) {
+            occupied = occupiedPassed;
+            revenue = revenue + cost;
+        }
+        else if (!occupiedPassed && occupied) {
+            occupied = occupiedPassed;
+            revenue = revenue - cost;
+        }
+    }
+
+    public void setCost(int costPassed) {
+        cost = costPassed;
+    }
+
+    public String toString() {
+        return
+                "Row: " + row + "\n" +
+                        "Seat: " + seat + "\n" +
+                        "Aisle: " + aisle + "\n" +
+                        "Window: " + window + "\n" +
+                        "Occupied: " + occupied + "\n" +
+                        "Cost: " + cost + "\n";
+
+    }
+
 }
