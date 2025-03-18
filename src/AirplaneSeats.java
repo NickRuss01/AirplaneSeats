@@ -161,6 +161,11 @@ public class AirplaneSeats {
 
 
     }
+
+    public static void inputValidation() {
+        //checks if user is entering appropriate integer value between 0-4 for row, and 0-3 for column
+    }
+
 }
 
 
