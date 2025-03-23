@@ -66,7 +66,7 @@ public class AirplaneSeats {
     }
 
     public static void seatInfo(Seat[][] AirplaneSeat) {
-        inputValidationSeatInfo(AirplaneSeat);
+        inputValidation(AirplaneSeat);
         seatMenu(AirplaneSeat);
     }
 
@@ -98,39 +98,6 @@ public class AirplaneSeats {
             System.out.println(seat.toString());
         }
         seatMenu(AirplaneSeat);
-
-
-    }
-
-    public static void inputValidationSeatInfo(Seat[][] AirplaneSeat) {
-        int row;
-        do {
-            System.out.println("Please enter in the row you would like to sit in:");
-            while (!keyboard.hasNextInt()) {
-                System.out.println("Invalid input - is not a valid integer. Please enter a row between 0 and 4.");
-                keyboard.next();
-            }
-            row = keyboard.nextInt();
-            if (row < 0 || row > x - 1) {
-                System.out.println("Invalid input - is not a valid row.");
-            }
-        } while (row < 0 || row > x - 1);
-        keyboard.nextLine();
-
-        int column;
-        do {
-            System.out.println("Please enter in the column you would like to sit in:");
-            while (!keyboard.hasNextInt()) {
-                System.out.println("Invalid input - is not a valid integer. Please try again.");
-                keyboard.next();
-            }
-            column = keyboard.nextInt();
-            if (column < 0 || column > y - 1) {
-                System.out.println("Invalid input - is not a valid column. Please enter a column between 0 and 3");
-            }
-        } while (column < 0 || column > y - 1);
-        keyboard.nextLine();
-        System.out.println(AirplaneSeat[row][column].toString());
     }
 
     public static void inputValidationSeatBuy(Seat[][] AirplaneSeat) {
@@ -169,6 +136,35 @@ public class AirplaneSeats {
             System.out.println("This seat is already occupied. You may not purchase it.");
         }
     }
+
+    public static void inputValidation(Seat[][] AirplaneSeat) {
+        int row;
+        do {
+            System.out.println("Please enter in the row you would like to sit in:");
+            while (!keyboard.hasNextInt()) {
+                System.out.println("Invalid input - is not a valid integer. Please enter a row between 0 and 4.");
+                keyboard.next();
+            }
+            row = keyboard.nextInt();
+            if (row < 0 || row > x - 1) {
+                System.out.println("Invalid input - is not a valid row.");
+            }
+        } while (row < 0 || row > x - 1);
+        keyboard.nextLine();
+
+        int column;
+        do {
+            System.out.println("Please enter in the column you would like to sit in:");
+            while (!keyboard.hasNextInt()) {
+                System.out.println("Invalid input - is not a valid integer. Please try again.");
+                keyboard.next();
+            }
+            column = keyboard.nextInt();
+            if (column < 0 || column > y - 1) {
+                System.out.println("Invalid input - is not a valid column. Please enter a column between 0 and 3");
+            }
+        } while (column < 0 || column > y - 1);
+        keyboard.nextLine();
+        System.out.println(AirplaneSeat[row][column].toString());
+    }
 }
-
-
