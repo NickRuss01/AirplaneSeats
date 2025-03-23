@@ -66,6 +66,43 @@ public class AirplaneSeats {
     }
 
     public static void seatInfo(Seat[][] AirplaneSeat) {
+        inputValidationSeatInfo(AirplaneSeat);
+        seatMenu(AirplaneSeat);
+    }
+
+    public static void seatBuy(Seat[][] AirplaneSeat) {
+        inputValidationSeatBuy(AirplaneSeat);
+        seatMenu(AirplaneSeat);
+    }
+
+    public static void sort(Seat[][] AirplaneSeat) {
+        Seat[] sortingArray = new Seat[x * y];
+        int counter = 0;
+        for (int i = 0; i < x; ++i) {
+            for (int j = 0; j < y; ++j) {
+                sortingArray[counter] = AirplaneSeat[i][j];
+                ++counter;
+            }
+        }
+        int n = sortingArray.length;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (sortingArray[j].getCost() > sortingArray[j + 1].getCost()) {
+                    Seat temp = sortingArray[j];
+                    sortingArray[j] = sortingArray[j + 1];
+                    sortingArray[j + 1] = temp;
+                }
+            }
+        }
+        for (Seat seat : sortingArray) {
+            System.out.println(seat.toString());
+        }
+        seatMenu(AirplaneSeat);
+
+
+    }
+
+    public static void inputValidationSeatInfo(Seat[][] AirplaneSeat) {
         int row;
         do {
             System.out.println("Please enter in the row you would like to sit in:");
@@ -94,10 +131,9 @@ public class AirplaneSeats {
         } while (column < 0 || column > y - 1);
         keyboard.nextLine();
         System.out.println(AirplaneSeat[row][column].toString());
-        seatMenu(AirplaneSeat);
     }
 
-    public static void seatBuy(Seat[][] AirplaneSeat) {
+    public static void inputValidationSeatBuy(Seat[][] AirplaneSeat) {
         int row;
         do {
             System.out.println("Please enter in the row you would like to sit in:");
@@ -132,40 +168,7 @@ public class AirplaneSeats {
         else{
             System.out.println("This seat is already occupied. You may not purchase it.");
         }
-        seatMenu(AirplaneSeat);
     }
-
-    public static void sort(Seat[][] AirplaneSeat) {
-        Seat[] sortingArray = new Seat[x * y];
-        int counter = 0;
-        for (int i = 0; i < x; ++i) {
-            for (int j = 0; j < y; ++j) {
-                sortingArray[counter] = AirplaneSeat[i][j];
-                ++counter;
-            }
-        }
-        int n = sortingArray.length;
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (sortingArray[j].getCost() > sortingArray[j + 1].getCost()) {
-                    Seat temp = sortingArray[j];
-                    sortingArray[j] = sortingArray[j + 1];
-                    sortingArray[j + 1] = temp;
-                }
-            }
-        }
-        for (Seat seat : sortingArray) {
-            System.out.println(seat.toString());
-        }
-        seatMenu(AirplaneSeat);
-
-
-    }
-
-    public static void inputValidation() {
-        //checks if user is entering appropriate integer value between 0-4 for row, and 0-3 for column
-    }
-
 }
 
 
